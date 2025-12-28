@@ -1,0 +1,25 @@
+db:
+  uri: "mongodb://search_root:search_root_pass@localhost:27017/?authSource=admin"
+  database: "news_corpus"
+  collection: "documents"
+
+logic:
+  urls_jsonl: "corpus.jsonl"
+
+  start_urls:
+    - "https://habr.com/ru/articles/"
+    - "https://ria.ru/"
+
+  allowed_domains:
+    - "habr.com"
+    - "ria.ru"
+
+  request_delay_sec: 1.0
+  recrawl_interval_sec: 86400
+
+  max_pages: 50000
+  worker_count: 4
+
+  user_agent: "SearchBot/0.1 (+https://example.com/contact)"
+  respect_robots: false
+  follow_links: true
